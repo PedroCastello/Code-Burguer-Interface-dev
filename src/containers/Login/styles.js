@@ -13,6 +13,7 @@ export const Background = styled.div`
   width: 100%;
   height: 100%;
   background-color: #111; /* Altere para a cor cinza escuro */
+  transition: background-color 0.5s ease;
 `
 
 export const ContainerItens = styled.div`
@@ -59,7 +60,7 @@ export const SignInLink = styled.a`
 export const Button = styled.button`
   margin-top: 20px; /* Adicione espaço acima do botão */
   padding: 12px 25px; /* Aumente o padding para deixar o botão maior */
-  background-color: #7f00ff; /* Altere para a cor roxa */
+  background-color: #d2691e; /* Altere para a cor roxa */
   color: #fff;
   border: none;
   border-radius: 25px; /* Ajuste o border-radius para tornar o botão mais arredondado */
@@ -67,6 +68,8 @@ export const Button = styled.button`
   position:relative;
   right: 170px;
   width: 160px;
+  font-weight: 400px;
+  font-size:20px;
 `;
 
 export const Title = styled.h1`
