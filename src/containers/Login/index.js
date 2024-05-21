@@ -1,6 +1,6 @@
 // arquivo Login/index.js
 
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Background,
@@ -9,21 +9,36 @@ import {
   Input,
   SignInLink,
   Button,
-  Title
-} from './styles'
+  Title,
+  LeftImage, // Importe o styled-component da imagem da esquerda
+  LogoImage // Importe o styled-component da imagem do logo
+} from './styles';
 
-import LeftImage from '../../assets/esquerda1.jpg'; // Importe a imagem esquerda.png
-import Logo from '../../assets/Stack__2_-removebg-preview.png'
+import LeftImage1 from '../../assets/esquerda1.jpg'; // Importe a primeira imagem da esquerda
+import LeftImage2 from '../../assets/esquerda2.jpg'; // Importe a segunda imagem da esquerda
+import Logo from '../../assets/Stack__2_-removebg-preview.png'; // Importe a imagem do logo
 
 function Login() {
+  const [currentLeftImage, setCurrentLeftImage] = useState(LeftImage1); // Estado para controlar a imagem da esquerda
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLeftImage((prevImage) => 
+        prevImage === LeftImage1 ? LeftImage2 : LeftImage1
+      );
+    }, 6000); // Troca a cada 6 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div>
       <Container>
         {/* Divida a página em 60% para a imagem e 40% para o conteúdo */}
         <Background>
-          <img src={LeftImage} alt="Left Image" style={{ width: '60%', height: '100%', float: 'left' }} />
+          <LeftImage src={currentLeftImage} alt="Left Image" />
           <ContainerItens>
-          <img src={Logo} alt="Logo Image" style={{ width: '60%', height: '100%', float: 'left' }} />
+            <LogoImage src={Logo} alt="Logo Image" />
             <Title>Login</Title>
             <Label>Email</Label>
             <Input></Input>
@@ -40,4 +55,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Login;

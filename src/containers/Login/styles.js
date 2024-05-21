@@ -13,7 +13,6 @@ export const Background = styled.div`
   width: 100%;
   height: 100%;
   background-color: #111; /* Altere para a cor cinza escuro */
-  transition: background-color 0.5s ease;
 `
 
 export const ContainerItens = styled.div`
@@ -76,4 +75,20 @@ export const Title = styled.h1`
   text-align: center; /* Centralize o texto */
   color: #fff; /* Altere para a cor branca */
   margin-bottom:50px
+`;
+
+export const LeftImage = styled.img`
+  width: 60%; 
+  height: 100%; 
+  float: left;
+  border-radius: 10px; /* Adiciona um leve arredondamento à borda */
+  box-sizing: border-box; /* Garante que a borda não aumente o tamanho total da imagem */
+  transition: opacity 0.5s ease; /* Adiciona uma transição suave na opacidade */
+`;
+
+export const LogoImage = styled.img`
+  width: 60%; 
+  height: 100%; 
+  float: left;
+  margin-bottom: 20px; /* Adiciona um espaço abaixo da imagem */
 `;
