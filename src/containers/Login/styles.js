@@ -12,83 +12,88 @@ export const Container = styled.div`
 export const Background = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #111; /* Altere para a cor cinza escuro */
+  background-color: #111;
 `
 
 export const ContainerItens = styled.div`
   position: absolute;
-  right: 0; /* Posicione à direita */
-  top: 50%; /* Centralize verticalmente */
-  transform: translateY(-50%); /* Centralize verticalmente */
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   padding: 20px;
   width: 40%;
-  background-color: transparent; /* Altere para a cor de fundo desejada */
+  background-color: transparent;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centralize os itens */
+  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `
 
 export const Label = styled.p`
   font-size: 16px;
-  margin-bottom: 8px;
-  color: #fff; /* Altere para a cor branca */
+  margin-bottom: 10px;
+  color: #fff;
   position: relative;
   right: 220px;
 `
 
 export const Input = styled.input`
-  width: 70%; /* Defina a largura para 60% */
+  width: 70%;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 23px;
 `
 
 export const SignInLink = styled.a`
   display: block;
   margin-top: 20px;
-  color: #fff; /* Altere para a cor branca */
-  position:relative;
-    right: 170px;
-  p{
-    text-decoration: underline; /* Sublinhe o link */
-    
+  color: #fff;
+  position: relative;
+  right: 170px;
+  p {
+    text-decoration: underline;
   }
 `
 
 export const Button = styled.button`
-  margin-top: 20px; /* Adicione espaço acima do botão */
-  padding: 12px 25px; /* Aumente o padding para deixar o botão maior */
-  background-color: #d2691e; /* Altere para a cor roxa */
-  color: #fff;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #d2691e;
   border: none;
-  border-radius: 25px; /* Ajuste o border-radius para tornar o botão mais arredondado */
+  border-radius: 25px;
   cursor: pointer;
-  position:relative;
+  position: relative;
   right: 170px;
   width: 160px;
   font-weight: 400px;
-  font-size:20px;
-`;
+  font-size: 20px;
+`
 
 export const Title = styled.h1`
-  text-align: center; /* Centralize o texto */
-  color: #fff; /* Altere para a cor branca */
-  margin-bottom:50px
-`;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 50px;
+`
 
 export const LeftImage = styled.img`
-  width: 60%; 
-  height: 100%; 
+  width: 60%;
+  height: 100%;
   float: left;
-  border-radius: 10px; /* Adiciona um leve arredondamento à borda */
-  box-sizing: border-box; /* Garante que a borda não aumente o tamanho total da imagem */
-  transition: opacity 0.5s ease; /* Adiciona uma transição suave na opacidade */
-`;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease;
+`
 
 export const LogoImage = styled.img`
-  width: 60%; 
-  height: 100%; 
+  width: 60%;
+  height: 100%;
   float: left;
-  margin-bottom: 20px; /* Adiciona um espaço abaixo da imagem */
-`;
+  margin-bottom: 20px;
+`
