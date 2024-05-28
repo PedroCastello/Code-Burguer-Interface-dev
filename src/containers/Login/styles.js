@@ -38,14 +38,14 @@ export const Label = styled.p`
   font-size: 16px;
   margin-bottom: 10px;
   color: #fff;
-  position: relative;
-  right: 220px;
+  position: abs;
+  margin-right: 62%;
 `
 
 export const Input = styled.input`
   width: 70%;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 23px;
@@ -55,8 +55,7 @@ export const SignInLink = styled.a`
   display: block;
   margin-top: 20px;
   color: #fff;
-  position: relative;
-  right: 170px;
+  margin-right: 46%;
   p {
     text-decoration: underline;
   }
@@ -69,13 +68,21 @@ export const Button = styled.button`
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  position: relative;
-  right: 170px;
+  margin-right: 46%;
   width: 160px;
-  font-weight: 400px;
+  font-weight: 400;
   font-size: 20px;
-`
+  transition: background-color 0.3s ease, transform 0.1s ease;
 
+  &:hover {
+    background-color: #b35916;
+  }
+
+  &:active {
+    background-color: #8c4312;
+    transform: scale(0.98);
+  }
+`;
 export const Title = styled.h1`
   text-align: center;
   color: #fff;
