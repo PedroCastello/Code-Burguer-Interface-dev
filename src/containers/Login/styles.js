@@ -45,8 +45,8 @@ export const Label = styled.p`
 export const Input = styled.input`
   width: 70%;
   padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
+  margin-bottom: 12px;
+  border: ${ props => props.error ? '2px solid #cc1717 ' : '1px solid #ccc' } ;
   border-radius: 5px;
   font-size: 23px;
 `
@@ -103,4 +103,17 @@ export const LogoImage = styled.img`
   height: 100%;
   float: left;
   margin-bottom: 20px;
+`
+
+export const ErrorMessage = styled.p ` 
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+
+  color: #cc1717
+
+
+
+
 `

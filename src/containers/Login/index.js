@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import * as Yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import {
   Container,
@@ -12,11 +14,17 @@ import {
   Title,
   LeftImage,
   LogoImage,
+  ErrorMessage,
 } from './styles'
 
 import LeftImage1 from '../../assets/esquerda1.jpg'
 import LeftImage2 from '../../assets/esquerda2.jpg'
 import Logo from '../../assets/Stack__2_-removebg-preview.png'
+
+const schema = Yup.object().shape({
+  email: Yup.string().email("Digite um e-mail válido").required("*O e-mail é obrigatório"),
+  password: Yup.string().required("A senha é obrigatória").min(6,"A senha deve ter pelo menos 6 dígitos"),
+})
 
 function Login() {
   const {
@@ -24,7 +32,10 @@ function Login() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm()
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+
   const [currentLeftImage, setCurrentLeftImage] = useState(LeftImage1)
 
   useEffect(() => {
@@ -47,14 +58,16 @@ function Login() {
           <ContainerItens>
             <LogoImage src={Logo} alt="Logo Image" />
             <Title>Login</Title>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form noValidate onSubmit={handleSubmit(onSubmit)}>
               <Label>Email</Label>
-              <Input{...register('email')}/>
+              <Input {...register('email')} error={errors.email?.message}/>
+              <ErrorMessage  className='errors' >{errors.email?.message}</ErrorMessage>
 
               <Label>Senha</Label>
-              <Input{...register('password')}/>
+              <Input {...register('password')} error={errors.password?.message}/>
+              <ErrorMessage className='errors'>{errors.password?.message}</ErrorMessage>
 
-              <Button type='submit'>Sign in</Button>
+              <Button type="submit">Sign in</Button>
             </form>
             <SignInLink>
               Não possui conta ? <p>SignUp</p>
