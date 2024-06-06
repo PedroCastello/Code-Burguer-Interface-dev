@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
+import api from '../../services/api'
+
 import {
   Container,
   Background,
@@ -22,8 +24,12 @@ import LeftImage2 from '../../assets/sistema-para-hamburgueria-.jpg'
 import Logo from '../../assets/Stack__2_-removebg-preview.png'
 
 const schema = Yup.object().shape({
-  email: Yup.string().email("Digite um e-mail válido").required("*O e-mail é obrigatório"),
-  password: Yup.string().required("A senha é obrigatória").min(6,"A senha deve ter pelo menos 6 dígitos"),
+  email: Yup.string()
+    .email('Digite um e-mail válido')
+    .required('*O e-mail é obrigatório'),
+  password: Yup.string()
+    .required('A senha é obrigatória')
+    .min(6, 'A senha deve ter pelo menos 6 dígitos'),
 })
 
 function Login() {
@@ -48,7 +54,13 @@ function Login() {
     return () => clearInterval(interval)
   }, [])
 
-  const onSubmit = data => console.log(data)
+  const onSubmit = async clientData => {
+    const response = await api.post('sessions', {
+      email: clientData.email,
+      password: clientData.password,
+    })
+    console.log(response)
+  }
 
   return (
     <div>
@@ -60,12 +72,19 @@ function Login() {
             <Title>Login</Title>
             <form noValidate onSubmit={handleSubmit(onSubmit)}>
               <Label>Email</Label>
-              <Input {...register('email')} error={errors.email?.message}/>
-              <ErrorMessage  className='errors' >{errors.email?.message}</ErrorMessage>
+              <Input {...register('email')} error={errors.email?.message} />
+              <ErrorMessage className="errors">
+                {errors.email?.message}
+              </ErrorMessage>
 
               <Label>Senha</Label>
-              <Input {...register('password')} error={errors.password?.message}/>
-              <ErrorMessage className='errors'>{errors.password?.message}</ErrorMessage>
+              <Input
+                {...register('password')}
+                error={errors.password?.message}
+              />
+              <ErrorMessage className="errors">
+                {errors.password?.message}
+              </ErrorMessage>
 
               <Button type="submit">Sign in</Button>
             </form>
